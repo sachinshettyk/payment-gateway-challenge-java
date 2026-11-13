@@ -113,6 +113,12 @@ coverage. They cover authorization, decline, masked retrieval, invalid requests,
 missing payments, acquirer errors/timeouts, and request correlation. The acquirer is
 simulated in tests; Docker is not required.
 
+`PaymentGatewayEndToEndTest` starts the gateway on a random port and a local HTTP
+acquirer stub, exercising real HTTP through the full application with no mocked Spring
+beans. It covers authorized and declined payment creation and retrieval, acquirer wire
+payloads, request correlation, validation, and acquirer unavailability without retries.
+It runs as part of the same test command; no Docker or external services are needed.
+
 Report: `build/reports/tests/test/index.html`.
 
 ## Dependency security
